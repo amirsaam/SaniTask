@@ -13,6 +13,8 @@ import IsoCountryCodes
 import DataCache
 import Semaphore
 
+// This ViewModel is only a proof of concept of how UI should be updated
+// In a production level app, each main view should have its own ViewModel
 class ViewModels: ObservableObject {
    static public let shared = ViewModels()
 
@@ -56,7 +58,7 @@ class ViewModels: ObservableObject {
    func changeAuthorizationStatus() {
       guard let stepQtyType = HKObjectType.quantityType(forIdentifier: .stepCount) else { return }
       let status = HKHealthStore().authorizationStatus(for: stepQtyType)
-      
+
       Task { @MainActor in
          switch status {
          case .notDetermined:
@@ -69,47 +71,61 @@ class ViewModels: ObservableObject {
             authorisedHealthKit = false
          }
       }
+   
    }
 
+   // There is an issue for me on usage of MainActor on HealthKit API function
+   // Because it uses completion handler, I couldn't just wrap the whole function in
+   // `@MainActor in` while I do call them in views, it resulted in UI Warning no matter
+   // what I've tried so far, so here is what happened...
    func readStepsTaken() async {
       guard let week = Calendar.current.date(byAdding: .weekday, value: -7, to: Date()),
             let month = Calendar.current.date(byAdding: .month, value: -1, to: Date()) else { return }
+      
       readStepsCount(startDate: Date(), endDate: Date()) { steps in
          Task { @MainActor in
             self.userTodayStepsCount = String(format: "%.0f", steps)
          }
       }
+      
       readStepsCount(startDate: week, endDate: Date()) { steps in
          Task { @MainActor in
             self.userWeekStepsCount = String(format: "%.0f", steps)
          }
       }
+      
       readStepsCount(startDate: month, endDate: Date()) { steps in
          Task { @MainActor in
             self.userMonthStepsCount = String(format: "%.0f", steps)
          }
       }
-      if userStepsGraphData.isEmpty {
-         var day = 14
-         var tempData: [(date: Date, steps: Double)] = []
-         let endOfToday = Calendar.current.endOfDay(for: Date())
-         repeat {
-            guard let pastDays = Calendar.current.date(byAdding: .day, value: -day, to: endOfToday) else { return }
-            readStepsCount(startDate: pastDays, endDate: pastDays) { steps in
-               tempData.append((date: pastDays, steps: steps))
-               semaphore.signal()
-            }
-            day -= 1
-            await semaphore.wait()
-         } while day > 0
-         let sortedData = tempData.sorted { $0.date < $1.date }
-         let stepsData = sortedData.map { String(format: "%.0f", $0.steps) }
-         Task { @MainActor in
-            self.userStepsGraphData = stepsData
-         }
+
+      await MainActor.run {
+         self.userStepsGraphData.removeAll()
       }
+
+      var tempGraphData: [(date: Date, steps: Double)] = []
+      let endOfToday = Calendar.current.endOfDay(for: Date())
+      
+      for day in -14..<0 {
+         guard let pastDays = Calendar.current.date(byAdding: .day, value: day, to: endOfToday) else { return }
+         readStepsCount(startDate: pastDays, endDate: pastDays) { steps in
+            tempGraphData.append((date: pastDays, steps: steps))
+            semaphore.signal()
+         }
+         await semaphore.wait()
+      }
+      
+      let sortedGraphData = tempGraphData.sorted { $0.date < $1.date }
+      let stepsGraphData = sortedGraphData.map { String(format: "%.0f", $0.steps) }
+
+      await MainActor.run {
+         self.userStepsGraphData = stepsGraphData
+      }
+
    }
 
+   // Creates what `SwiftUICharts` requires to create a chart based on
    func past14DaysData(userStepsGraphData: [String]) -> LineChartData {
       var dataPoints: [LineChartDataPoint] = []
       for (index, stepsString) in userStepsGraphData.enumerated() {

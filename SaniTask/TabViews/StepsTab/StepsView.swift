@@ -83,8 +83,7 @@ struct StepsView: View {
          .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                Button {
-                  Task { @MainActor in
-                     model.userStepsGraphData = []
+                  Task {
                      await model.readStepsTaken()
                   }
                } label: {
@@ -94,8 +93,7 @@ struct StepsView: View {
             }
          }
       }
-      .task { @MainActor in
-         model.userStepsGraphData = []
+      .task {
          await model.readStepsTaken()
       }
    }
