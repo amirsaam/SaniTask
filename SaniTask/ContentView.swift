@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
    
    @EnvironmentObject var model: ViewModels
-   @State private var dataLoaded = true
+   @State private var dataLoaded = false
    @State private var selectedTab = 1
    
    var body: some View {
@@ -22,7 +22,8 @@ struct ContentView: View {
                   .tabItem {
                      Label("CovidStats", systemImage: "microbe")
                   }
-               StepsTaken()
+               StepsView()
+                  .environmentObject(model)
                   .tag(2)
                   .tabItem {
                      Label("StepsTaken", systemImage: "figure.walk.circle")
@@ -40,7 +41,6 @@ struct ContentView: View {
             dataLoaded = true
          }
       }
-      .accentColor(.black)
    }
 }
 

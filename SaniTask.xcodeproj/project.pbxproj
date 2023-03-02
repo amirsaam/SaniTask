@@ -13,13 +13,14 @@
 		68424DB229ADA1AC008AA7C7 /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68424DB129ADA1AC008AA7C7 /* DataStructures.swift */; };
 		68424DB529ADA43C008AA7C7 /* Semaphore in Frameworks */ = {isa = PBXBuildFile; productRef = 68424DB429ADA43C008AA7C7 /* Semaphore */; };
 		68424DB729ADA73B008AA7C7 /* CovidStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68424DB629ADA73B008AA7C7 /* CovidStatsView.swift */; };
-		68424DB929ADA750008AA7C7 /* StepsTakenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68424DB829ADA750008AA7C7 /* StepsTakenView.swift */; };
+		68424DB929ADA750008AA7C7 /* StepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68424DB829ADA750008AA7C7 /* StepsView.swift */; };
 		68424DBD29ADAD91008AA7C7 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 68424DBC29ADAD91008AA7C7 /* CachedAsyncImage */; };
 		68424DC029ADB33C008AA7C7 /* IsoCountryCodes in Frameworks */ = {isa = PBXBuildFile; productRef = 68424DBF29ADB33C008AA7C7 /* IsoCountryCodes */; };
 		6848B9A329ACE27700BBCE31 /* SaniTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6848B9A229ACE27700BBCE31 /* SaniTaskApp.swift */; };
 		6848B9A529ACE27700BBCE31 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6848B9A429ACE27700BBCE31 /* ContentView.swift */; };
 		6848B9A729ACE27800BBCE31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6848B9A629ACE27800BBCE31 /* Assets.xcassets */; };
 		6848B9AA29ACE27800BBCE31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6848B9A929ACE27800BBCE31 /* Preview Assets.xcassets */; };
+		68C8C70629AE98A8002D740A /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 68C8C70529AE98A8002D740A /* SwiftUICharts */; };
 		68D8B03029AE12D800B622DC /* DataCache in Frameworks */ = {isa = PBXBuildFile; productRef = 68D8B02F29AE12D800B622DC /* DataCache */; };
 		68D8B03429AE2EF000B622DC /* StatListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D8B03329AE2EF000B622DC /* StatListItem.swift */; };
 		68D8B03629AE2F3A00B622DC /* StatDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D8B03529AE2F3A00B622DC /* StatDetailedView.swift */; };
@@ -30,7 +31,7 @@
 		68424DAF29ADA195008AA7C7 /* Functions.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; tabWidth = 3; };
 		68424DB129ADA1AC008AA7C7 /* DataStructures.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = DataStructures.swift; sourceTree = "<group>"; tabWidth = 3; };
 		68424DB629ADA73B008AA7C7 /* CovidStatsView.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = CovidStatsView.swift; sourceTree = "<group>"; tabWidth = 3; };
-		68424DB829ADA750008AA7C7 /* StepsTakenView.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = StepsTakenView.swift; sourceTree = "<group>"; tabWidth = 3; };
+		68424DB829ADA750008AA7C7 /* StepsView.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = StepsView.swift; sourceTree = "<group>"; tabWidth = 3; };
 		6848B99F29ACE27700BBCE31 /* SaniTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SaniTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6848B9A229ACE27700BBCE31 /* SaniTaskApp.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = SaniTaskApp.swift; sourceTree = "<group>"; tabWidth = 3; };
 		6848B9A429ACE27700BBCE31 /* ContentView.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 3; };
@@ -38,6 +39,8 @@
 		6848B9A929ACE27800BBCE31 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		68D8B03329AE2EF000B622DC /* StatListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatListItem.swift; sourceTree = "<group>"; };
 		68D8B03529AE2F3A00B622DC /* StatDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatDetailedView.swift; sourceTree = "<group>"; };
+		68DC952429AF600B005AA203 /* SaniTask.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SaniTask.entitlements; sourceTree = "<group>"; };
+		68DC952529AF6056005AA203 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +51,7 @@
 				68424DC029ADB33C008AA7C7 /* IsoCountryCodes in Frameworks */,
 				68D8B03029AE12D800B622DC /* DataCache in Frameworks */,
 				68424DBD29ADAD91008AA7C7 /* CachedAsyncImage in Frameworks */,
+				68C8C70629AE98A8002D740A /* SwiftUICharts in Frameworks */,
 				68424DAC29AD1718008AA7C7 /* CodableAny in Frameworks */,
 				68424DB529ADA43C008AA7C7 /* Semaphore in Frameworks */,
 			);
@@ -84,6 +88,8 @@
 		6848B9A129ACE27700BBCE31 /* SaniTask */ = {
 			isa = PBXGroup;
 			children = (
+				68DC952529AF6056005AA203 /* Info.plist */,
+				68DC952429AF600B005AA203 /* SaniTask.entitlements */,
 				6848B9A629ACE27800BBCE31 /* Assets.xcassets */,
 				6848B9A829ACE27800BBCE31 /* Preview Content */,
 				6848B9A229ACE27700BBCE31 /* SaniTaskApp.swift */,
@@ -117,7 +123,7 @@
 		68D8B03229AE2EC700B622DC /* StepsTab */ = {
 			isa = PBXGroup;
 			children = (
-				68424DB829ADA750008AA7C7 /* StepsTakenView.swift */,
+				68424DB829ADA750008AA7C7 /* StepsView.swift */,
 			);
 			path = StepsTab;
 			sourceTree = "<group>";
@@ -144,6 +150,7 @@
 				68424DBC29ADAD91008AA7C7 /* CachedAsyncImage */,
 				68424DBF29ADB33C008AA7C7 /* IsoCountryCodes */,
 				68D8B02F29AE12D800B622DC /* DataCache */,
+				68C8C70529AE98A8002D740A /* SwiftUICharts */,
 			);
 			productName = SaniTask;
 			productReference = 6848B99F29ACE27700BBCE31 /* SaniTask.app */;
@@ -179,6 +186,7 @@
 				68424DBB29ADAD91008AA7C7 /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 				68424DBE29ADB33C008AA7C7 /* XCRemoteSwiftPackageReference "IsoCountryCodes" */,
 				68D8B02E29AE12D800B622DC /* XCRemoteSwiftPackageReference "DataCache" */,
+				68C8C70429AE98A8002D740A /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
 			);
 			productRefGroup = 6848B9A029ACE27700BBCE31 /* Products */;
 			projectDirPath = "";
@@ -209,7 +217,7 @@
 				68424DAE29ADA172008AA7C7 /* ViewModels.swift in Sources */,
 				68D8B03429AE2EF000B622DC /* StatListItem.swift in Sources */,
 				68D8B03629AE2F3A00B622DC /* StatDetailedView.swift in Sources */,
-				68424DB929ADA750008AA7C7 /* StepsTakenView.swift in Sources */,
+				68424DB929ADA750008AA7C7 /* StepsView.swift in Sources */,
 				68424DB229ADA1AC008AA7C7 /* DataStructures.swift in Sources */,
 				68424DB729ADA73B008AA7C7 /* CovidStatsView.swift in Sources */,
 				6848B9A529ACE27700BBCE31 /* ContentView.swift in Sources */,
@@ -340,17 +348,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SaniTask/SaniTask.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SaniTask/Preview Content\"";
 				DEVELOPMENT_TEAM = 44JD6UQ5FG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = SaniTask/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow this app to read your Health data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow this app to write on your Health data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -372,17 +383,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SaniTask/SaniTask.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SaniTask/Preview Content\"";
 				DEVELOPMENT_TEAM = 44JD6UQ5FG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = SaniTask/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Allow this app to read your Health data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Allow this app to write on your Health data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,6 +469,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		68C8C70429AE98A8002D740A /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/willdale/SwiftUICharts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		68D8B02E29AE12D800B622DC /* XCRemoteSwiftPackageReference "DataCache" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/huynguyencong/DataCache";
@@ -485,6 +507,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 68424DBE29ADB33C008AA7C7 /* XCRemoteSwiftPackageReference "IsoCountryCodes" */;
 			productName = IsoCountryCodes;
+		};
+		68C8C70529AE98A8002D740A /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 68C8C70429AE98A8002D740A /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			productName = SwiftUICharts;
 		};
 		68D8B02F29AE12D800B622DC /* DataCache */ = {
 			isa = XCSwiftPackageProductDependency;

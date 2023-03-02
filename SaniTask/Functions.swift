@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import HealthKit
 
 // MARK: - CachedAsynImage Instance
 extension URLCache {
@@ -76,4 +77,43 @@ func getCountryData(countryCode: String) async -> [RestCountriesData]? {
       return nil
    }
    
+}
+
+// MARK: -
+func setupHealthKit() async throws {
+   guard HKHealthStore.isHealthDataAvailable() else { return }
+   if let stepCount = HKObjectType.quantityType(forIdentifier: .stepCount) {
+      do {
+         try await HKHealthStore().requestAuthorization(toShare: [stepCount], read: [stepCount])
+      } catch {
+         throw error
+      }
+   }
+}
+
+// MARK: -
+func readStepsCount(startDate: Date, endDate: Date, completion: @escaping (Double) -> Void) {
+   guard let stepQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount) else { return }
+   let startOfTheDate = Calendar.current.startOfDay(for: startDate)
+   let endtOfTheDate = Calendar.current.endOfDay(for: endDate)
+   let predicate = HKQuery.predicateForSamples(withStart: startOfTheDate, end: endtOfTheDate, options: .strictStartDate)
+   let query = HKStatisticsQuery(quantityType: stepQuantityType, quantitySamplePredicate: predicate, options: .cumulativeSum) { _, result, error in
+       guard let result = result, let sum = result.sumQuantity() else {
+           completion(0.0)
+           return
+       }
+       completion(sum.doubleValue(for: HKUnit.count()))
+   }
+   HKHealthStore().execute(query)
+}
+
+// MARK: - Calculate End of a Day
+extension Calendar {
+    func endOfDay(for date: Date) -> Date {
+        var components = DateComponents()
+        components.day = 1
+        components.second = -1
+        let startOfTomorrow = self.date(byAdding: components, to: self.startOfDay(for: date))!
+        return self.date(byAdding: .second, value: -1, to: startOfTomorrow)!
+    }
 }
